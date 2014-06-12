@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PURE CSS Pagination</title>
+
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/pagination.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <h1>PURE CSS PAGINATION</h1>
+        </div>
+      </div>
+
+      <div id="pageContainer">
+        <div id="page1" class="page">
+          <div class="row">
+            <div class="col-xs-12">
+              <h1>Page1</h1>
+            </div>
+          </div>
+        </div>
+
+        <div id="page2" class="page">
+          <div class="row">
+            <div class="col-xs-12">
+              <h1>Page2</h1>
+            </div>
+          </div>
+        </div>
+
+
+        <div id="page3" class="page">
+          <div class="row">
+            <div class="col-xs-12">
+              <h1>Page3</h1>
+            </div>
+          </div>
+        </div>
+
+
+        <div id="page4" class="page">
+          <div class="row">
+            <div class="col-xs-12">
+              <h1>Page4</h1>
+            </div>
+          </div>
+        </div>
+
+
+        <div id="page5" class="page">
+          <div class="row">
+            <div class="col-xs-12">
+              <h1>Page5</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 text-center">
+          <ul class="pagination">
+            <li><a href="#page1">1</a></li>
+            <li><a href="#page2">2</a></li>
+            <li><a href="#page3">3</a></li>
+            <li><a href="#page4">4</a></li>
+            <li><a href="#page5">5</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+     $(document).ready(function(){
+       var $pages = $('.page');
+       $pages.each(function(){
+         var $contentsContainer = $('<div class="row"></div>');
+         var $cell = $('<div class="col-xs-2 dummy-contents"></div>');
+         for( var i = 0; i < 36; i++ ) {
+           $contentsContainer.append($cell.clone());
+         }
+         $(this).append($contentsContainer);
+
+         var startHue = Math.floor(Math.random()*360);
+         $contentsContainer.find('.dummy-contents').each(function(i){
+           var width  = $(this).outerWidth();
+           var height = width;
+           $(this).css({
+             height: 132,
+             backgroundColor: "hsl(" + (startHue + (i * 6)) + ",56%,53%)"
+           });
+         });
+       });
+       $('#pageContainer').css('height', $pages.height());
+     });
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+#pageContainer {
+    position: relative;
+}
+.page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    display: none;
+}
+.page:first-child{
+    display: block;
+}
+.page:target {
+    display: block;
+}
